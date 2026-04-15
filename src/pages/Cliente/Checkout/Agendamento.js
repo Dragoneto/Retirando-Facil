@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const API_URL = 'http://localhost:5000/api';
-
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
 function Agendamento() {
   const [selectedSlot, setSelectedSlot] = useState(null);
   const navigate = useNavigate();
