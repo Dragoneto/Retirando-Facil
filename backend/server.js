@@ -19,7 +19,7 @@ app.use('/api', scheduleRoutes);
 app.use('/api', orderRoutes);
 
 app.get('/', (req, res) => {
-  res.json({ message: 'API do Retira Fácil está funcionando, seu lerdo.' });
+  res.json({ message: 'API do Retira-Fácil está funcionando!' });
 });
 
 const PORT = process.env.API_PORT || 5000;
