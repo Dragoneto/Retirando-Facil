@@ -6,7 +6,8 @@ const pool = new Pool({
   host: process.env.DB_HOST,
   database: process.env.DB_DATABASE,
   password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT
+  port: process.env.DB_PORT,
+  ssl: { rejectUnauthorized: false }
 });
 
 pool.connect((err, client, release) => {
@@ -14,9 +15,10 @@ pool.connect((err, client, release) => {
     return console.error('Erro ao conectar ao banco de dados', err.stack);
   }
   client.release();
-  console.log('Conexão com o PostgreSQL LOCAL estabelecida com sucesso!');
+  console.log('Conexão com o PostgreSQL estabelecida com sucesso!');
 });
 
 module.exports = {
   query: (text, params) => pool.query(text, params),
+  pool
 };
